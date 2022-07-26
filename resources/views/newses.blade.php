@@ -9,6 +9,12 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .bd-example {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }</style>
 </head>
 <body class="antialiased">
 <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
@@ -20,22 +26,14 @@
             <div class="bd-example-snippet bd-code-snippet">
                 <div class="bd-example">
                     @if (count($newses) > 0)
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Заголовок</th>
-                                <th scope="col">Описание</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($newses as $news)
-                                <tr>
-                                    <td>{{$news->title.' '.$news->id}}</td>
-                                    <td>{{$news->description.' '.$news->id}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                        @foreach($newses as $news)
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$news->title.' '.$news->id}}</h5>
+                                    <p class="card-text">{{$news->description.' '.$news->id}}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     @endif
                 </div>
             </div>
